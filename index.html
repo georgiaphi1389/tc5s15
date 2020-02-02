@@ -1,312 +1,220 @@
 <!DOCTYPE html>
+<html>
+
 <head>
-  <meta charset="utf-8">
-  <script src="https://d3js.org/d3.v3.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/noframework.waypoints.js"></script>
-  <style>
-    @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,600');
-  *{
-    margin:0;
-    padding:0;
-  }
-  html,
-  body{
-     height: 100%;
-     padding: 0;
-     scroll-behavior: smooth;
-     background: #f7f5f2;
-     color: #666;
-     font-family: 'Open Sans', sans-serif;
-     font-weight: 300;
-  }
-  h2{
-    line-height: 1.25;
-    padding-top: 45px;
-    font-weight: 300;
-  }
-  svg{
-    padding: 20px;
-  }
-  text{
-    font-size: 10px;
-  }
-  strong{
-    font-weight: 600;
-  }
-  #graphic {
-    max-width:  1440px;
-    width: 100%;
-    position:   relative; 
-    height:  100%;
-    position:  relative; 
-    margin:auto;
-  }
-  .container {
-    height: 100%;
-    max-width: 440px;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    position: absolute;
-    height: 100%;
-    line-height: 1.5;
-    left: 500px;
-  }
-  .container div {
-    height: 100%;
-    display: block;
-    padding: 0 45px;
-  }
-  .fixed {
-    position: fixed;
-    max-width: 500px;
-    height: 500px;
-    top: 50px;
-  }
-  </style>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Scrollama: Sticky Side Example</title>
+	<meta name="description" content="Scrollama: Sticky Side Example">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel='stylesheet' href='../style.css'>
+	<style>
+		#scrolly {
+			position: relative;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			background-color: #f3f3f3;
+			padding: 1rem;
+		}
+
+		#scrolly>* {
+			-webkit-box-flex: 1;
+			-ms-flex: 1;
+			flex: 1;
+		}
+
+
+		article {
+			position: relative;
+			padding: 0 1rem;
+			max-width: 20rem;
+		}
+
+		figure {
+			position: -webkit-sticky;
+			position: sticky;
+			width: 100%;
+			margin: 0;
+			-webkit-transform: translate3d(0, 0, 0);
+			-moz-transform: translate3d(0, 0, 0);
+			transform: translate3d(0, 0, 0);
+			background-color: #8a8a8a;
+			z-index: 0;
+		}
+
+		figure p {
+			text-align: center;
+			padding: 1rem;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			-moz-transform: translate(-50%, -50%);
+			-webkit-transform: translate(-50%, -50%);
+			transform: translate(-50%, -50%);
+			font-size: 8rem;
+			font-weight: 900;
+			color: #fff;
+		}
+
+
+		.step {
+			margin: 0 auto 2rem auto;
+			background-color: #3b3b3b;
+			color: #fff;
+		}
+
+		.step:last-child {
+			margin-bottom: 0;
+		}
+
+		.step.is-active {
+			background-color: goldenrod;
+			color: #3b3b3b;
+		}
+
+		.step p {
+			text-align: center;
+			padding: 1rem;
+			font-size: 1.5rem;
+		}
+	</style>
+
 </head>
 
 <body>
-  <div id="graphic">
-  <div class="container">
-    <div id="div1">
-      <h2>On <strong>July 27, 2017</strong> there were <strong>20</strong> people attending the Data Visualization meetup.</h2>
-    </div>
-    <div id="div2">
-      <h2>Out of those <strong>20</strong> there were <strong>12</strong> people who attended.</h2>
-      <p></p>
-    </div>
-    <div id="div4">
-      <h2><strong>5</strong> out of <strong>12</strong> people had iphones. The other <strong>7</strong> had android devices</h2>
-    </div>
-    <div id="div6">
-      <h2>Out of those <strong>12</strong> attendees only <strong>3</strong> people were San Diego natives. <br><br>The age group for the attendees ranged between 25 and 65.</h2>
-    </div>
-    
-  </div>
+	<a href="https://github.com/russellgoldenberg/scrollama" target="_blank" class="github-corner"
+		aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250"
+			style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
+			<path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+			<path
+				d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+				fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+			<path
+				d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+				fill="currentColor" class="octo-body"></path>
+		</svg></a>
+	<main>
+		<nav>
+			<a href='https://github.com/russellgoldenberg/scrollama'>scrollama.js</a>
+			<div class='nav__examples'>
+				<p>Examples:</p>
+				<a href='https://russellgoldenberg.github.io/scrollama/basic'>Basic</a>
+				<a href='https://russellgoldenberg.github.io/scrollama/progress'>Progress</a>
+				<a href='https://russellgoldenberg.github.io/scrollama/sticky-side'>Sticky Side</a>
+				<a href='https://russellgoldenberg.github.io/scrollama/sticky-overlay'>Sticky Overlay</a>
+			</div>
+		</nav>
+		<section id='intro'>
+			<h1 class='intro__hed'>Sticky Side Example</h1>
+			<p class='intro__dek'>
+				Start scrolling to see how it works.
+			</p>
+		</section>
+
+		<section id='scrolly'>
+
+			<article>
+				<div class='step' data-step='1'>
+					<p>STEP 1</p>
+				</div>
+				<div class='step' data-step='2'>
+					<p>STEP 2</p>
+				</div>
+				<div class='step' data-step='3'>
+					<p>STEP 3</p>
+				</div>
+				<div class='step' data-step='4'>
+					<p>STEP 4</p>
+				</div>
+			</article>
+
+			<figure>
+				<p>0</p>
+			</figure>
+		</section>
+
+		<section id='outro'></section>
+	</main>
+
+	<!-- <div class='debug'></div> -->
+	<script src='https://unpkg.com/d3@5.9.1/dist/d3.min.js'></script>
+	<script src='https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js'></script>
+	<script src='../stickyfill.min.js'></script>
+	<script src='../scrollama.min.js'></script>
+	<script>
+		// using d3 for convenience
+		var main = d3.select('main')
+		var scrolly = main.select('#scrolly');
+		var figure = scrolly.select('figure');
+		var article = scrolly.select('article');
+		var step = article.selectAll('.step');
+
+		// initialize the scrollama
+		var scroller = scrollama();
+
+		// generic window resize listener event
+		function handleResize() {
+			// 1. update height of step elements
+			var stepH = Math.floor(window.innerHeight * 0.75);
+			step.style('height', stepH + 'px');
+
+			var figureHeight = window.innerHeight / 2
+			var figureMarginTop = (window.innerHeight - figureHeight) / 2
+
+			figure
+				.style('height', figureHeight + 'px')
+				.style('top', figureMarginTop + 'px');
 
 
-  <!-- svg -->
-  <div class="fixed"><svg id="viz" width="100%" height="100%"></svg></div>
+			// 3. tell scrollama to update new element dimensions
+			scroller.resize();
+		}
 
-</div><!-- /graphic -->
-  
-  
-  <script>
+		// scrollama event handlers
+		function handleStepEnter(response) {
+			console.log(response)
+			// response = { element, direction, index }
 
-		//svg
-    let svg = d3.select("svg");
+			// add color to current step only
+			step.classed('is-active', function (d, i) {
+				return i === response.index;
+			})
 
+			// update graphic based on step
+			figure.select('p').text(response.index + 1);
+		}
 
-    //svg width and height
-    svg.attr('width',500)
-        .attr('height',500)
+		function setupStickyfill() {
+			d3.selectAll('.sticky').each(function () {
+				Stickyfill.add(this);
+			});
+		}
 
+		function init() {
+			setupStickyfill();
 
-    //set up grid spacing
-    let spacing = 40;
-    let rows = 10;
-    let column = 10;
-    let randnum = (min,max) => Math.round( Math.random() * (max-min) + min );
+			// 1. force a resize on load to ensure proper dimensions are sent to scrollama
+			handleResize();
 
-
-
-    //Create an array of objects
-    let our_data = d3.range(20).map(i => 
-    ({ 'device': i < 5 ? 'ios' : 'android', 
-        'city': i < 3 ? 'San Diegan' : 'Out of towners', 
-        'age': randnum(25, 65)
-    }));
-
-
-    //create group and join our data to that group
-    let group = svg.selectAll('g')
-      .data(our_data)
-      .enter()
-      .append("g")
-
-
-    //create rectangles
-    let rects = group.append("rect")
+			// 2. setup the scroller passing options
+			// 		this will also initialize trigger observations
+			// 3. bind scrollama event handlers (this can be chained like below)
+			scroller.setup({
+				step: '#scrolly article .step',
+				offset: 0.33,
+				debug: true,
+			})
+				.onStepEnter(handleStepEnter)
 
 
-    //city data
-    d3.selectAll('g')
-      .append("text")
-      .text( (d) => d["city"])
-      .attr("fill", "gray")
-      .attr("class", "city")
-      .attr("dx", -500)
+			// setup resize event
+			window.addEventListener('resize', handleResize);
+		}
 
-
-
-    //age data
-    d3.selectAll('g')
-      .append("text")
-      .text( (d) => d["age"] )
-      .attr("fill", "#fff")
-      .attr("class", "age")
-      .attr("dx", -500)
-
-
-
-
-
-
-
-
-    // square grid
-    let grid = () =>{
-      rects
-        .transition()
-        .delay((d, i) => 10 * i)
-        .duration(600)
-        .ease("elastic")
-        .attr("width", 20)
-        .attr("height", 20)
-        .attr("rx", 5)
-        .attr("ry", 5)
-        .attr("x", (d, i) => i % column * spacing)
-        .attr("y", (d, i) => Math.floor(i / 10) % rows * spacing)
-        .attr("fill", (d, i) => (i < 40 ? "#394147" : "#99c125"))
-        .attr("opacity", "1")
-    }
-
-
-
-    //circle grid
-    let grid2 = () =>{
-      rects
-        .transition()
-        .delay((d, i) => 10 * i)
-        .duration(600)
-        .ease("elastic")
-        .attr("width", 20)
-        .attr("height", 20)
-        .attr("rx", "50%")
-        .attr("ry", "50%")
-        .attr("x", (d, i) => i % column * spacing)
-        .attr("y", (d, i) => Math.floor(i / 10) % rows * spacing)
-        .attr("fill", (d, i) => (i < 8 ? "none" : "#99c125"))
-    }
-
-
-    //divide
-    let divide = () =>{
-      rects
-        .transition()
-        .delay((d, i) => 10 * i)
-        .duration(600)
-        .ease("elastic")
-        .attr("width", 10)
-        .attr("height", 10)
-        .attr("rx", 0)
-        .attr("ry", 0)
-        .attr("x", (d, i) => d['device'] == "ios" ? randnum(100, 150) :  randnum(300, 350))
-        .attr("y", (d, i) => i * 20)
-        .attr("fill", (d, i) => d['device'] == "ios" ? "#394147": "#99c125")
-        .attr("opacity", (d,i)=> i < 12 ? 1 : 0 )//only show 12 people
-
-
-
-        //age
-        d3.selectAll('text.age')
-          .transition()
-          .delay( (d,i) => 40*i ) 
-          .duration(900)
-          .ease('elastic')
-          .attr("dx", -500)
-
-
-        //city
-        d3.selectAll('text.city')
-          .transition()
-          .delay( (d,i) => 40*i ) 
-          .duration(900)
-          .ease('elastic')
-          .attr("dx", -500)
-    }
-
-
-
-
-
-    //bar cart
-    let barChart = () => {
-      rects
-        .attr("rx", 0 )
-        .attr("ry", 0 )
-        .transition()
-        .delay( (d,i) => 20*i ) 
-        .duration(900)
-        .ease('elastic')//linear, quad, cubic, sin, exp, circle, elastic, back, bounce
-        .attr("x", (d,i) => 150 )
-        .attr("y", (d,i) => i * 17 )
-        .attr("width", (d,i) => d["age"])
-        .attr("height", (d,i) => 15)
-        .attr("fill", (d, i) => (i < 3 ? "#99c125" : "#394147"))
-        .attr("opacity", 1)
-        .attr("transform", "translate(0,0) rotate(0)")
-        .attr("opacity", (d,i)=> i < 12 ? 1 : 0 )//only show 12 people
-
-
-      //age text
-      d3.selectAll('text.age')
-        .transition()
-        .delay( (d,i) => 20*i ) 
-        .duration(900)
-        .ease('elastic')
-        //align text right
-        .attr("text-anchor", "start")
-        .attr("dx", 160)
-        .attr("dy", (d,i)=> (i * 17) + 12)
-        .attr("opacity", (d,i)=> i < 12 ? 1 : 0 )//nly show 12 people
-
-
-
-      //city text
-      d3.selectAll('text.city')
-        .transition()
-        .delay( (d,i) => 20*i ) 
-        .duration(900)
-        .ease('elastic')
-        //align text left
-        .attr("text-anchor", "end")
-        .attr("dx", 140)
-        .attr("dy", (d,i)=> (i * 17) + 12)
-        .attr("opacity", (d,i)=> i < 12 ? 1 : 0 )//only show 12 people
-
-
-    }
-
-
-
-
-    //waypoints scroll constructor
-    function scroll(n, offset, func1, func2){
-      return new Waypoint({
-        element: document.getElementById(n),
-        handler: function(direction) {
-           direction == 'down' ? func1() : func2();
-        },
-        //start 75% from the top of the div
-        offset: offset
-      });
-    };
-
-
-
-    //triger these functions on page scroll
-    new scroll('div2', '75%', grid2, grid);
-    new scroll('div4', '75%', divide, grid);
-    new scroll('div6', '75%', barChart, divide);
-
-
-
-    //start grid on page load
-    grid();
- 
-
-  </script>
+		// kick things off
+		init();
+	</script>
 </body>
+
 </html>
