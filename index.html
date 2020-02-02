@@ -68,7 +68,8 @@
 	
 	<main>
 	
-		<nav>
+		<nav class="fixed-nav-bar">
+ 
 			<a href='https://github.com/russellgoldenberg/scrollama'>scrollama.js</a>
 			<div class='nav__examples'>
 				<p>Examples:</p>
@@ -165,7 +166,7 @@
 			scroller.setup({
 				step: '#scrolly article .step',
 				debug: true,
-				offset: 0.5
+				offset: 0.7
 			})
 				.onStepEnter(handleStepEnter)
 				.onStepExit(handleStepExit);
