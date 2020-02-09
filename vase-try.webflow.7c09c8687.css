@@ -2763,7 +2763,7 @@ p {
 .top-text {
   margin-bottom: 0px;
   font-family: Poppins, sans-serif;
-  color: #ff5f0f;
+  color: #ff7f50;
   font-size: 14px;
   line-height: 24px;
   font-weight: 400;
@@ -3150,7 +3150,7 @@ p {
   border-width: 30px;
   border-color: rgba(0, 0, 0, 0.05);
   border-radius: 240px;
-  background-color: #ff5f0f;
+  background-color: #ff7f50;
   background-image: url("https://uploads-ssl.webflow.com/5e3dfdbb21c192244c613029/5e3e00cb21c19289c061492c_samuel.png");
   background-position: 50% 50%;
   background-size: 200px;
@@ -3168,7 +3168,7 @@ p {
   padding-top: 0px;
   padding-bottom: 20px;
   font-family: Poppins, sans-serif;
-  color: #ff5f0f;
+  color: #ff7f50;
   font-size: 40px;
   line-height: 50px;
   font-weight: 500;
@@ -3310,7 +3310,7 @@ p {
 }
 
 .social-wrapper-div.twitter:hover {
-  border-color: #ff5f0f;
+  border-color: #ff7f50;
 }
 
 .social-wrapper-div.google {
@@ -3454,7 +3454,7 @@ p {
 .sale-tittle {
   margin-bottom: 20px;
   font-family: Poppins, sans-serif;
-  color: #ff5f0f;
+  color: #ff7f50;
   font-size: 24px;
   line-height: 34px;
   font-weight: 500;
@@ -3711,7 +3711,7 @@ p {
 }
 
 .button-2.contact:hover {
-  background-color: #ff5f0f;
+  background-color: #ff7f50;
 }
 
 .center-button-block {
@@ -4534,7 +4534,7 @@ p {
 
 .text-block-3 {
   font-family: Poppins, sans-serif;
-  color: #ff5f0f;
+  color: #ff7f50;
   font-weight: 400;
   text-align: center;
   letter-spacing: 2px;
@@ -4557,7 +4557,7 @@ p {
 
 .heading-2 {
   font-family: Poppins, sans-serif;
-  color: #ff5f0f;
+  color: #ff7f50;
   font-weight: 500;
   text-align: center;
 }
@@ -4582,7 +4582,7 @@ p {
 .section-2 {
   position: static;
   overflow: visible;
-  background-color: #ff5f0f;
+  background-color: #ff7f50;
   background-image: url("https://uploads-ssl.webflow.com/5e3dfdbb21c192244c613029/5e3e01019666d457072bbb2a_anigif_sub-buzz-26154-1491839185-1.gif");
   background-position: 50% 50%;
   background-size: 500px;
@@ -4590,7 +4590,7 @@ p {
 
 .section-3 {
   position: static;
-  background-color: #ff5f0f;
+  background-color: #ff7f50;
   background-image: url("https://uploads-ssl.webflow.com/5e3dfdbb21c192244c613029/5e3e01019666d457072bbb2a_anigif_sub-buzz-26154-1491839185-1.gif");
   background-position: 50% 50%;
   background-size: 500px;
