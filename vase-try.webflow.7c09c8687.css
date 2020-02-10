@@ -2586,7 +2586,7 @@ p {
   -webkit-align-items: flex-start;
   -ms-flex-align: start;
   align-items: flex-start;
-  background-color: rgba(255, 95, 15, 0.57);
+  background-color: rgba(240, 128, 128, 0.57);
   background-image: url("https://uploads-ssl.webflow.com/5e3dfdbb21c192244c613029/5e3dfeb07ad1eee158f54d56_ulysses.png"), url("https://uploads-ssl.webflow.com/5e3dfdbb21c192244c613029/5e3e00cb21c19289c061492c_samuel.png");
   background-position: 50% 50%, 80% 50%;
   background-size: 200px, 200px;
