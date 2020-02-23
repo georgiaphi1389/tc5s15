@@ -502,7 +502,7 @@ p {
 }
 
 .heading-8 {
-  font-family: cursive;
+   font-family: 'Snell Roundhand', TimesNewRoman, Times, Baskerville, Georgia, serif;
   font-size: 80px;
   line-height: 600px;
   text-align: center;
