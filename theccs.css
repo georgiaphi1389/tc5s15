@@ -479,6 +479,14 @@ p {
   background-repeat: no-repeat;
 }
 
+.heading-7 {
+  font-family: 'Times New Roman', TimesNewRoman, Times, Baskerville, Georgia, serif;
+  font-size: 80px;
+  line-height: 600px;
+  text-align: center;
+}
+
+
 
 .section-8 {
   height: 5000px;
@@ -491,6 +499,13 @@ p {
   background-position: 50% 50%;
   background-size: auto 650px;
   background-repeat: no-repeat;
+}
+
+.heading-8 {
+  font-family: cursive;
+  font-size: 80px;
+  line-height: 600px;
+  text-align: center;
 }
 
 .section-9 {
