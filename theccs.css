@@ -464,6 +464,7 @@ p {
   font-size: 80px;
   line-height: 600px;
   text-align: center;
+   font-style: italic;
 }
 
 
@@ -579,9 +580,10 @@ p {
 }
 
 .heading-6 {
-  font-family: Lato, sans-serif;
+  font-family: Didot, sans-serif;
   color: hsla(0, 0%, 100%, 0.74);
   text-align: center;
+   font-style: italic;
 }
 
 
